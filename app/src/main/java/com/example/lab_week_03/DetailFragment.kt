@@ -5,7 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
+import androidx.navigation.fragment.findNavController
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -47,6 +49,11 @@ class DetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val coffeeId = arguments?.getInt(COFFEE_ID, 0) ?: 0
         setCoffeeData(coffeeId)
+
+        val backButton = view.findViewById<Button>(R.id.button_back)
+        backButton.setOnClickListener {
+            findNavController().navigateUp()
+        }
     }
 
     fun setCoffeeData(id: Int){
@@ -63,8 +70,25 @@ class DetailFragment : Fragment() {
                 coffeeTitle?.text = getString(R.string.latte_title)
                 coffeeDesc?.text = getString(R.string.latte_desc)
             }
+            R.id.susuaren -> {
+                coffeeTitle?.text = getString(R.string.susuaren_title)
+                coffeeDesc?.text = getString(R.string.susuaren_desc)
+            }
+            R.id.espresso -> {
+                coffeeTitle?.text = getString(R.string.espresso_title)
+                coffeeDesc?.text = getString(R.string.espresso_desc)
+            }
+            R.id.aqua -> {
+                coffeeTitle?.text = getString(R.string.aqua_title)
+                coffeeDesc?.text = getString(R.string.aqua_desc)
+            }
+            R.id.jasminetea -> {
+                coffeeTitle?.text = getString(R.string.jasminetea_title)
+                coffeeDesc?.text = getString(R.string.jasminetea_desc)
+            }
         }
     }
+
 
 
     companion object {

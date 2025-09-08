@@ -53,25 +53,28 @@ class ListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         val coffeeList = listOf<View>(
             view.findViewById(R.id.affogato),
             view.findViewById(R.id.americano),
-            view.findViewById(R.id.latte)
+            view.findViewById(R.id.latte),
+            view.findViewById(R.id.susuaren),
+            view.findViewById(R.id.espresso),
+            view.findViewById(R.id.aqua),
+            view.findViewById(R.id.jasminetea)
         )
 
-//        coffeeList.forEach{
-//            it.setOnClickListener(this)
-//        }
-
-        coffeeList.forEach{ coffee ->
+        coffeeList.forEach { coffee ->
             val fragmentBundle = Bundle()
             fragmentBundle.putInt(COFFEE_ID, coffee.id)
             coffee.setOnClickListener(
                 Navigation.createNavigateOnClickListener(
-                    R.id.coffee_id_action, fragmentBundle)
+                    R.id.coffee_id_action, fragmentBundle
+                )
             )
         }
     }
+
 
     //    override fun onClick(v: View?) {
 //        v?.let{
